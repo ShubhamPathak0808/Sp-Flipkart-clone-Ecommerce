@@ -5,8 +5,10 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "npm start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install":"cd client && npm install",
+    "client-build":"cd client && npm rum build"
   },
   "author": "Shubham Pathak",
   "license": "ISC",

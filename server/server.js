@@ -18,22 +18,23 @@ app.use("/",router);
 //getting .env constants
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
+
 const PORT = process.env.PORT || 8000;
 const URL = process.env.MONGODB_URL || `mongodb+srv://${USERNAME}:${PASSWORD}@flipkartcloneecommerce.ufytvzz.mongodb.net/?retryWrites=true&w=majority`
 
 //establishing connection with DataBase
 Connection(URL);
 
-//static file
-app.use(express.static(path.join(__dirname, './client/build')));
-app.get('*',function(req,res){
-    res.sendFile(path.join(__dirname,"./client/build/index.html"));
-})
+// //static file
+// app.use(express.static(path.join(__dirname, './client/build')));
+// app.get('*',function(req,res){
+//     res.sendFile(path.join(__dirname,"./client/build/index.html"));
+// })
 
-// //production level code for deployment
-// if(process.env.NODE_ENV === 'production'){
-//     app.use(express.static('client/build'))
-// }
+//production level code for deployment
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+}
 
 homeProductData_In_productSchema();
 
